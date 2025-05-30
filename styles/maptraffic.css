@@ -3,6 +3,7 @@
 /* Container do mapa */
 .map-container {
   width: 100%;
+  height: 900px;
   flex-grow: 1;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -12,7 +13,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .map-container {
-    height: 400px;
+    height: 700px;
   }
   
   .map-controls {
