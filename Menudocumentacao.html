@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles/Navbar.css">
 </head>
 <body>
-  <!-- Navbar no superior -->
+  <!-- Navbar superior -->
   <div class="navbar-top">
     <div class="logo-container">
       <img src="Logo/logo.png" alt="Logo" class="logo">
@@ -38,61 +38,64 @@
     <div class="location-content">
       <h2>Documentação</h2>
     </div>
-    <div class="container"
-  <div class="confirmacao-container">
-  <div class="form-group">
-    <label for="titulo">Tipo de Ação</label>
-    <input type="text" id="titulo" placeholder="Ex: O que foi realizado " class="form-input">
-  </div>
-  <div class="form-group">
-    <label for="tipo-ocorrencia">Tipo de Ocorrência*</label>
-    <select id="tipo-ocorrencia" class="form-input">
-      <option value="">Selecione...</option>
-      <option value="veiculo">Veículo mal-estacionado</option>
-      <option value="ocupação">Ocupação Indevida de lugares reservados</option>
-      <option value="congestionamento">Congestionamento</option>
-      <option value="outro">Outro</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="descricao">Texto Descritivo*</label>
-    <textarea id="descricao" placeholder="Escreva a sua descrição aqui..." class="form-textarea"></textarea>
-  </div>
-  <div class="form-group">
-    <label>Upload de Audio/ Video </label>
-    <div class="photo-upload">
-      <div class="photo-slot">+</div>
-      <div class="photo-slot">+</div>
-      <div class="photo-slot">+</div>
-      <div class="photo-slot">+</div>
-      <div class="photo-slot">+</div>
+    <div class="container">
+      <div class="confirmacao-container">
+        <div class="form-group">
+          <label for="titulo">Tipo de Ação</label>
+          <input type="text" id="titulo" placeholder="Ex: O que foi realizado" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="tipo-ocorrencia">Tipo de Ocorrência*</label>
+          <select id="tipo-ocorrencia" class="form-input">
+            <option value="">Selecione...</option>
+            <option value="veiculo">Veículo mal-estacionado</option>
+            <option value="ocupação">Ocupação Indevida de lugares reservados</option>
+            <option value="congestionamento">Congestionamento</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="descricao">Texto Descritivo*</label>
+          <textarea id="descricao" placeholder="Escreva a sua descrição aqui..." class="form-textarea"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Upload de Audio/Video</label>
+          <div class="photo-upload">
+            <div class="photo-slot">+</div>
+            <div class="photo-slot">+</div>
+            <div class="photo-slot">+</div>
+            <div class="photo-slot">+</div>
+            <div class="photo-slot">+</div>
+          </div>
+          <p class="file-limit">Ficheiros (máx: 5)</p>
+          <input type="file" id="file-input" accept="image/*,audio/*,video/*" multiple style="display: none;">
+          <button type="button" class="file-button" id="choose-files">Escolher Ficheiros</button>
+          <p class="file-status" id="file-status">Nenhum ficheiro selecionado</p>
+        </div>
+        <button type="button" class="enviar-btn" id="submit-btn">Enviar</button>
+      </div>
     </div>
-    <p class="file-limit">Ficheiros (máx: 5)</p>
-  <input type="file" id="file-input" accept="image/*,audio/*,video/*" multiple style="display: none;">
-  <button class="file-button" id="choose-files">Escolher Ficheiros</button>
-  <p class="file-status" id="file-status">Nenhum ficheiro selecionado</p>
   </div>
-  <button class="enviar-btn">Enviar</button>
-</div>
 
-   <!-- Nav bar inferior -->
- <div class="navbar">
-  <a href="Menugestaoterreno.html" class="nav-item ">
-    <img src="Img/lucide/land-plot.svg" alt="land-plot" class="nav-icon">
-  </a>
-  <a href="Menuconfirmacao.html" class="nav-item">
-    <img src="Img/lucide/book-text.svg" alt="book-text" class="nav-icon">
-  </a>
-  <a href="Menuinicial.html" class="nav-item active">
-    <img src="Img/lucide/Botão-Menu-1.svg" alt="Botão-Menu-1" class="nav-icon">
-  </a>
-  <a href="Menudocumentacao.html" class="nav-item background">
-    <img src="Img/white/calendar-check.svg" alt="calendar-check" class="nav-icon">
-  </a>
-  <a href="Menuimpacto.html" class="nav-item">
-    <img src="Img/lucide/rss.svg" alt="wifi" class="nav-icon">
-  </a>
-</div>
+  <!-- Navbar inferior -->
+  <div class="navbar">
+    <a href="Menugestaoterreno.html" class="nav-item">
+      <img src="Img/lucide/land-plot.svg" alt="land-plot" class="nav-icon">
+    </a>
+    <a href="Menuconfirmacao.html" class="nav-item">
+      <img src="Img/lucide/book-text.svg" alt="book-text" class="nav-icon">
+    </a>
+    <a href="Menuinicial.html" class="nav-item active">
+      <img src="Img/lucide/Botão-Menu-1.svg" alt="Botão-Menu-1" class="nav-icon">
+    </a>
+    <a href="Menudocumentacao.html" class="nav-item background">
+      <img src="Img/white/calendar-check.svg" alt="calendar-check" class="nav-icon">
+    </a>
+    <a href="Menuimpacto.html" class="nav-item">
+      <img src="Img/lucide/rss.svg" alt="rss" class="nav-icon">
+    </a>
+  </div>
+
   <script src="scripts/Sidebar.js"></script>
   <script src="scripts/Documentacao.js"></script>
 </body>

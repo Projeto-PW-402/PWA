@@ -63,8 +63,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         btn.innerHTML = `<span class="audit-name">${auditoria.nome || 'Auditoria'}</span><br><span class="audit-location">${auditoria.location || 'Sem localização'}</span>`;
         
         btn.onclick = () => {
+          // Guarda a auditoria selecionada
           localStorage.setItem("auditoria", JSON.stringify(auditoria));
           console.log("Auditoria selecionada:", auditoria.id);
+          // Redireciona para Menuinicial.html
+          window.location.href = "Menuinicial.html";
         };
 
         container.appendChild(btn);

@@ -1,70 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
   const startButton = document.getElementById('startAudit');
-  const endButton = document.getElementById('endAudit');
+  const endButton   = document.getElementById('endAudit');
   const timerDisplay = document.getElementById('timerDisplay');
-  const durationDisplay = document.getElementById('auditDuration'); // vamos esconder / ignorar
 
   let timerInterval = null;
 
-  function formatTime(elapsedTime) {
-    const hours = Math.floor(elapsedTime / 3600).toString().padStart(2, '0');
-    const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
-    const seconds = (elapsedTime % 60).toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
+  function formatTime(elapsedSec) {
+    const hh = String(Math.floor(elapsedSec / 3600)).padStart(2, '0');
+    const mm = String(Math.floor((elapsedSec % 3600) / 60)).padStart(2, '0');
+    const ss = String(elapsedSec % 60).padStart(2, '0');
+    return `${hh}:${mm}:${ss}`;
   }
 
   function updateTimer() {
-    const startTime = localStorage.getItem('auditStartTime');
-    if (!startTime) return;
+    const startISO = localStorage.getItem('auditStartTime');
+    if (!startISO) return;
+    const elapsed = Math.floor((Date.now() - new Date(startISO)) / 1000);
+    timerDisplay.textContent = formatTime(elapsed);
+  }
 
-    const currentTime = new Date();
-    const elapsedTime = Math.floor((currentTime - new Date(startTime)) / 1000);
+  function initialize() {
+    const started = !!localStorage.getItem('auditStartTime');
+    startButton.disabled = started;
+    endButton.disabled   = !started;
+    timerDisplay.textContent = started ? '00:00:00' : timerDisplay.textContent || '00:00:00';
 
-    if (timerDisplay) {
-      timerDisplay.textContent = formatTime(elapsedTime);
+    if (started) {
+      timerInterval = setInterval(updateTimer, 1000);
+      updateTimer();
     }
   }
 
-  function initializeTimer() {
-    const startTime = localStorage.getItem('auditStartTime');
-    if (startTime) {
-      if (startButton) startButton.disabled = true;
-      if (endButton) endButton.disabled = false;
-      if (durationDisplay) durationDisplay.style.display = 'none'; // nunca mostrar
-      timerInterval = setInterval(updateTimer, 1000);
-      updateTimer();
-    } else {
-      if (startButton) startButton.disabled = false;
-      if (endButton) endButton.disabled = true;
-      if (timerDisplay) timerDisplay.textContent = '00:00:00';
-      if (durationDisplay) durationDisplay.style.display = 'none'; // nunca mostrar
+  startButton.addEventListener('click', () => {
+    // marca início
+    localStorage.setItem('auditStartTime', new Date().toISOString());
+    // limpa qualquer duração anterior
+    localStorage.removeItem('auditDuration');
+
+    startButton.disabled = true;
+    endButton.disabled   = false;
+    timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+  });
+
+  endButton.addEventListener('click', () => {
+    clearInterval(timerInterval);
+
+    const startISO = localStorage.getItem('auditStartTime');
+    if (startISO) {
+      const totalSec = Math.floor((Date.now() - new Date(startISO)) / 1000);
+      const formatted = formatTime(totalSec);
+      // guarda a duração final
+      localStorage.setItem('auditDuration', formatted);
     }
-  }
 
-  if (startButton) {
-    startButton.addEventListener('click', () => {
-      localStorage.setItem('auditStartTime', new Date().toISOString());
-      startButton.disabled = true;
-      endButton.disabled = false;
-      if (durationDisplay) durationDisplay.style.display = 'none'; // nunca mostrar
-      timerInterval = setInterval(updateTimer, 1000);
-      updateTimer();
-    });
-  }
+    // remove o start para "encerrar" a auditoria
+    localStorage.removeItem('auditStartTime');
 
-  if (endButton) {
-    endButton.addEventListener('click', () => {
-      clearInterval(timerInterval);
-      localStorage.removeItem('auditStartTime');
-      if (startButton) startButton.disabled = false;
-      if (endButton) endButton.disabled = true;
-      if (timerDisplay) timerDisplay.textContent = '00:00:00';
-      if (durationDisplay) {
-        durationDisplay.style.display = 'none'; // nunca mostrar
-        durationDisplay.textContent = '';
-      }
-    });
-  }
+    startButton.disabled = false;
+    endButton.disabled   = true;
+    timerDisplay.textContent = '00:00:00';
+  });
 
-  initializeTimer();
+  initialize();
 });
