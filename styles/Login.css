@@ -1,0 +1,171 @@
+body {
+    font-family: 'Sofia Sans', Arial, sans-serif;
+    background-image: url('../Img/fundo/image.png'); /* Adiciona a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Navbar no topo */
+.navbar-top {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 402px;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5c3507;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.navbar-top .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-top img.logo {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.navbar-top .logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.navbar-top .profile {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #8B4513;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar-top .profile:hover {
+    background-color: #c69500;
+}
+
+/* Estilo do container do formulário */
+.container {
+    background-color: rgba(255, 255, 255, 0.80); /* Caixa completamente transparente */
+    border: 2px solid #8B4513;
+    border-radius: 15px;
+    height: 600px;
+    width: 340px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 95.49px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 282px;  /* Definido como 282px */
+    height: 37px;  /* Definido como 37px */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    font-size: 14px;
+    box-sizing: border-box;
+    flex-shrink: 0;  /* Impede que as caixas encolham */
+}
+
+.forgot-password {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.forgot-text {
+    color: #000;
+    font-size: 12px;
+}
+
+.forgot-link {
+    color: #1E90FF;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #DAA520;
+    border: 2px solid #8B4513;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+
+button img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #c69500;
+}
+.erro-message {
+    width: 100%;
+    text-align: center;
+    color: #8B0000;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ffe4e1;
+    border: 1px solid #8B0000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.google-signin-container {
+  margin-top: 20px;
+  text-align: center;
+}

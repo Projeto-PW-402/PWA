@@ -1,0 +1,80 @@
+body {
+    font-family: 'Sofia Sans', sans-serif;
+    background-color: #5C3507;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Conteúdo principal */
+.main-content {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 80px; /* espaço para navbar-top */
+    margin-bottom: 83px; /* espaço para navbar inferior */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+}
+
+.location-content {
+    width: 100%;
+    max-width: 400px;
+    padding-left: 20px; /* Dá espaço à esquerda */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h2 {
+    color: #8FA0FF;
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+/* Container dos botões */
+.button-container {
+    display: block;
+    flex-direction: column;
+    align-items: flex-start; /* Para alinhar botões à esquerda também */
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Estilo dos botões personalizados */
+.custom-button {
+    display: flex;
+    align-items: center;
+    width: 95%;            
+    padding: 15px 20px;
+    margin: 10px auto;     
+    background-color: #fff;
+    border: 2px solid #D7CCC8;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #5C3507;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.button-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.custom-button:hover {
+    background-color: #F5F5F5;
+    border-color: #BCAAA4;
+}
+.custom-button:active {
+    background-color: #E0E0E0;
+    border-color: #A1887F;
+}

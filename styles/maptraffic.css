@@ -1,0 +1,31 @@
+/* Estilo do container principal */
+
+/* Container do mapa */
+.map-container {
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  min-height: 300px; /* altura mínima para usabilidade */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px;
+  }
+  
+  .map-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .layer-selector {
+    width: 100%;
+  }
+  
+  .layer-btn {
+    flex: 1;
+    text-align: center;
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles/Sidebar.css">
+  <link rel="stylesheet" href="styles/Documentacao.css">
+  <link rel="stylesheet" href="styles/Navbar.css">
+</head>
+<body>
+  <!-- Navbar no superior -->
+  <div class="navbar-top">
+    <div class="logo-container">
+      <img src="Logo/logo.png" alt="Logo" class="logo">
+      <span class="logo-text">Eyeseverywhere</span>
+    </div>
+    <img src="Img/lucide/user.svg" alt="Profile Icon" class="profile" id="profile-icon">
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Perfil</h3>
+      <img src="Img/lucide/logout-svgrepo-com.svg" alt="Close Icon" class="close-sidebar" id="close-sidebar" aria-label="Fechar Sidebar">
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="Login.html">Sair</a></li>
+    </ul>
+  </div>
+
+  <!-- Container do formulário -->
+  <div class="main-content">
+    <div class="location-content">
+      <h2>Documentação</h2>
+    </div>
+    <div class="container"
+  <div class="confirmacao-container">
+  <div class="form-group">
+    <label for="titulo">Tipo de Ação</label>
+    <input type="text" id="titulo" placeholder="Ex: O que foi realizado " class="form-input">
+  </div>
+  <div class="form-group">
+    <label for="tipo-ocorrencia">Tipo de Ocorrência*</label>
+    <select id="tipo-ocorrencia" class="form-input">
+      <option value="">Selecione...</option>
+      <option value="veiculo">Veículo mal-estacionado</option>
+      <option value="ocupação">Ocupação Indevida de lugares reservados</option>
+      <option value="congestionamento">Congestionamento</option>
+      <option value="outro">Outro</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="descricao">Texto Descritivo*</label>
+    <textarea id="descricao" placeholder="Escreva a sua descrição aqui..." class="form-textarea"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Upload de Audio/ Video </label>
+    <div class="photo-upload">
+      <div class="photo-slot">+</div>
+      <div class="photo-slot">+</div>
+      <div class="photo-slot">+</div>
+      <div class="photo-slot">+</div>
+      <div class="photo-slot">+</div>
+    </div>
+    <p class="file-limit">Ficheiros (máx: 5)</p>
+  <input type="file" id="file-input" accept="image/*,audio/*,video/*" multiple style="display: none;">
+  <button class="file-button" id="choose-files">Escolher Ficheiros</button>
+  <p class="file-status" id="file-status">Nenhum ficheiro selecionado</p>
+  </div>
+  <button class="enviar-btn">Enviar</button>
+</div>
+
+   <!-- Nav bar inferior -->
+ <div class="navbar">
+  <a href="Menugestaoterreno.html" class="nav-item ">
+    <img src="Img/lucide/land-plot.svg" alt="land-plot" class="nav-icon">
+  </a>
+  <a href="Menuconfirmacao.html" class="nav-item">
+    <img src="Img/lucide/book-text.svg" alt="book-text" class="nav-icon">
+  </a>
+  <a href="Menuinicial.html" class="nav-item active">
+    <img src="Img/lucide/Botão-Menu-1.svg" alt="Botão-Menu-1" class="nav-icon">
+  </a>
+  <a href="Menudocumentacao.html" class="nav-item background">
+    <img src="Img/white/calendar-check.svg" alt="calendar-check" class="nav-icon">
+  </a>
+  <a href="Menuimpacto.html" class="nav-item">
+    <img src="Img/lucide/rss.svg" alt="wifi" class="nav-icon">
+  </a>
+</div>
+  <script src="scripts/Sidebar.js"></script>
+  <script src="scripts/Documentacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/Login.css" />
+  <link rel="stylesheet" href="styles/Sidebar.css" />
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="navbar-top">
+    <div class="logo-container">
+      <img src="Logo/logo.png" alt="Logo" class="logo" />
+      <span class="logo-text">Eyeseverywhere</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Endereço de email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div class="forgot-password">
+        <span class="forgot-text">Esqueceu sua password? </span>
+        <a href="Esqueceudapassword.html" class="forgot-link">Clique aqui</a>
+      </div>
+      <div id="errorMessage" class="erro-message" style="display: none;"></div>
+      <button type="submit">
+        Iniciar Sessão
+        <img src="Img/lucide/key-round.svg" alt="Key Icon" />
+      </button>
+    <!-- Google Sign-In Button -->
+<div class="google-signin-container">
+  <div id="g_id_onload"
+       data-client_id="38496328640-rn64pa4r4i88is54mjaagloe624av54a.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse"
+       data-auto_prompt="false">
+  </div>
+  <div class="g_id_signin"
+       data-type="standard"
+       data-shape="rectangular"
+       data-theme="outline"
+       data-text="sign_in_with"
+       data-size="large"
+       data-logo_alignment="left">
+  </div>
+</div>
+  </div>
+</form>
+  </div>
+  <script src="scripts/Login.js"></script>
+</body>
+</html>
