@@ -8,26 +8,26 @@ if (chooseFilesBtn && fileInput) {
     fileInput.click();
   });
 
-  // Quando seleccionas ficheiros, atualiza o array e re-renderiza os slots
+  // Quando selecionas ficheiros, atualiza o array e re-renderiza os slots
   fileInput.addEventListener('change', (event) => {
     const newFiles = Array.from(event.target.files);
     if (chosenFiles.length + newFiles.length > 5) {
-      alert('Você pode selecionar no máximo 5 ficheiros.');
+      alert('Podes selecionar no máximo 5 ficheiros.');
       event.target.value = '';
       return;
     }
     chosenFiles.push(...newFiles);
     renderSlots();
     updateStatus();
-    event.target.value = ''; // para permitir re-seleção do mesmo ficheiro
+    event.target.value = '';
   });
 }
 
-// Renderiza os 5 slots, mostrando imagem/ícone + botão de eliminar
+
 function renderSlots() {
   const slots = document.querySelectorAll('.photo-slot');
   slots.forEach((slot, idx) => {
-    slot.innerHTML = '+';      // limpa conteúdo
+    slot.innerHTML = '+'; // Limpa conteúdo
     slot.style.cursor = 'pointer';
 
     const file = chosenFiles[idx];
@@ -55,26 +55,26 @@ function renderSlots() {
   });
 }
 
-// Cria o botão “×” e associa o clique para remover
+
 function appendDeleteButton(slot, index) {
   const btn = document.createElement('button');
   btn.className = 'delete-btn';
-  btn.innerHTML = '&times;'; // símbolo X
+  btn.innerHTML = '×'; // Símbolo X
   btn.addEventListener('click', (e) => {
-    e.stopPropagation();      // não dispara outros handlers
+    e.stopPropagation(); // Não dispara outros handlers
     removeFile(index);
   });
   slot.appendChild(btn);
 }
 
-// Remove o ficheiro do array e re-renderiza tudo
+
 function removeFile(index) {
   chosenFiles.splice(index, 1);
   renderSlots();
   updateStatus();
 }
 
-// Atualiza o texto de status (quantos ficheiros)
+
 function updateStatus() {
   const status = document.getElementById('file-status');
   if (status) {
@@ -85,48 +85,57 @@ function updateStatus() {
   }
 }
 
-// Envio do formulário
+
 const submitBtn = document.getElementById('submit-btn');
 if (submitBtn) {
   submitBtn.addEventListener('click', () => {
     const tituloInput = document.getElementById('titulo');
     const tipoOcorrenciaInput = document.getElementById('tipo-ocorrencia');
     const descricaoInput = document.getElementById('descricao');
+
     const titulo = tituloInput ? tituloInput.value.trim() : '';
-    const tipoOcorrencia = tipoOcorrenciaInput ? tipoOcorrenciaInput.value : '';
+    const tipoOcorrencia = tipoOcorrenciaInput ? tipoOcorrenciaInput.value.trim() : '';
     const descricao = descricaoInput ? descricaoInput.value.trim() : '';
 
+    // Validação: tipoOcorrencia E descricao são obrigatórios
     if (!tipoOcorrencia || !descricao) {
       alert('Por favor, preencha os campos obrigatórios (Tipo de Ocorrência e Texto Descritivo).');
       return;
     }
+
     if (chosenFiles.length > 5) {
-      alert('Você pode enviar no máximo 5 ficheiros.');
+      alert('Podes enviar no máximo 5 ficheiros.');
       return;
     }
 
-    const jsonData = {
-      nome: titulo || '',
-      tipo: tipoOcorrencia,
-      descricao: descricao,
-      dnome: '',
-      dnif: '',
-      dcontacto: '',
-      demail: '',
-      location: ''
-    };
+    const auditoriaStr = localStorage.getItem('auditoria'); 
+    const auditoria = auditoriaStr ? JSON.parse(auditoriaStr) : null;
+    const auditoriaID = auditoria ? auditoria.id : null; 
+     const userID = parseInt(localStorage.getItem('user_id',0), 10);
 
     const formData = new FormData();
-    formData.append('json_data', JSON.stringify(jsonData));
-    chosenFiles.forEach(file => formData.append('files[]', file));
 
-    fetch('http://127.0.0.1:5000/auditoria/upload', {
+    const auditoriaData = {
+      auditoria_id: auditoriaID,
+      user_id: userID,
+      titulo: titulo,
+      tipo: tipoOcorrencia,
+      descricao: descricao,
+      imagens_guardadas: []
+    };
+
+    formData.append('json_data', JSON.stringify(auditoriaData));
+
+    chosenFiles.forEach(file => formData.append('files[]', file));
+    
+    console.log('Enviando dados:', auditoriaData);
+    fetch('http://127.0.0.1:5000/pwa/upload', {
       method: 'POST',
       body: formData
     })
       .then(res => res.json())
       .then(data => {
-        alert(data.mensagem || `Erro: ${data.error}`);
+        alert(`Mensagem: ${data.mensagem || ''} Erro: ${data.error || ''}`);
         resetForm();
       })
       .catch(err => {
@@ -136,11 +145,12 @@ if (submitBtn) {
   });
 }
 
-// Inicialização: slots limpos + status
+
 document.addEventListener('DOMContentLoaded', () => {
   renderSlots();
   updateStatus();
 });
+
 function resetForm() {
   document.getElementById('titulo').value = '';
   document.getElementById('tipo-ocorrencia').value = '';
@@ -150,6 +160,6 @@ function resetForm() {
   updateStatus();
 }
 
-// Inicialização: slots limpos + status
+
 renderSlots();
 updateStatus();

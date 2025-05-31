@@ -7,5 +7,5 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  container.textContent = `Tempo total da auditoria: ${duration}`;
+  container.innerHTML = `<p class="confirmacao-texto">Tempo total da auditoria: ${duration}</p>`;
 });

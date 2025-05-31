@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("auditorias-container");
   const paginationContainer = document.getElementById("pagination-container");
-  const itemsPerPage = 9;
-  let currentPage = 1;
+  const itemsPerPage = 9; 
   let auditorias = [];
+  let currentPage = 1;
 
   const useremail = localStorage.getItem("loggedInUser");
 
   const auth = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/user?email=${useremail}`, {
-        method: "GET",
+      const response = await fetch('http://127.0.0.1:5000/pwa/login', {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: useremail })
       });
 
       if (!response.ok) {
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`http://localhost:5000/users/auditorias?user_id=${user.id}`);
+    const response = await fetch(`http://localhost:5000/users/auditorias?user_id=${user.id}` );
 
     if (!response.ok) {
       container.innerHTML = `<p class='text-danger'>Erro ao carregar auditorias: ${response.status}</p>`;
@@ -49,39 +50,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const renderPage = (page) => {
-      container.innerHTML = ""; // Clear the audit container
+      container.innerHTML = "";
 
-      // Calculate start and end indices for the current page
       const start = (page - 1) * itemsPerPage;
       const end = start + itemsPerPage;
       const pageAuditorias = auditorias.slice(start, end);
 
-      // Render audit buttons for the current page
-      pageAuditorias.forEach((auditoria) => {
+  
+      const totalButtons = itemsPerPage;
+      for (let i = 0; i < totalButtons; i++) {
         const btn = document.createElement("button");
         btn.className = "audit-button";
-        btn.innerHTML = `<span class="audit-name">${auditoria.nome || 'Auditoria'}</span><br><span class="audit-location">${auditoria.location || 'Sem localização'}</span>`;
-        
-        btn.onclick = () => {
-          // Guarda a auditoria selecionada
-          localStorage.setItem("auditoria", JSON.stringify(auditoria));
-          console.log("Auditoria selecionada:", auditoria.id);
-          // Redireciona para Menuinicial.html
-          window.location.href = "Menuinicial.html";
-        };
+
+        if (pageAuditorias[i]) {
+          const auditoria = pageAuditorias[i];
+          btn.innerHTML = `<span class="audit-name">${auditoria.nome || 'Auditoria'}</span><br><span class="audit-location">${auditoria.location || 'Sem localização'}</span>`;
+          btn.title = `${auditoria.nome || 'Auditoria'} - ${auditoria.location || 'Sem localização'}`;
+          btn.onclick = () => {
+            localStorage.setItem("auditoria", JSON.stringify(auditoria));
+            window.location.href = "Menuinicial.html";
+          };
+        } else {
+          // Botão vazio para manter layout fixo
+          btn.style.visibility = "hidden";
+          btn.disabled = true;
+        }
 
         container.appendChild(btn);
-      });
+      }
 
-      // Calculate total pages
       const totalPages = Math.ceil(auditorias.length / itemsPerPage);
 
-      // Clear and render pagination controls
-      paginationContainer.innerHTML = ""; // Clear the pagination container
+      paginationContainer.innerHTML = "";
       const pagination = document.createElement("div");
       pagination.className = "pagination-controls";
 
-      // First button
       const firstButton = document.createElement("button");
       firstButton.className = "pagination-button";
       firstButton.textContent = "First";
@@ -92,7 +95,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       };
       pagination.appendChild(firstButton);
 
-      // Numbered page buttons
       for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement("button");
         pageButton.className = `pagination-button ${i === page ? 'active-page' : ''}`;
@@ -104,7 +106,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         pagination.appendChild(pageButton);
       }
 
-      // Last button
       const lastButton = document.createElement("button");
       lastButton.className = "pagination-button";
       lastButton.textContent = "Last";
@@ -118,7 +119,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       paginationContainer.appendChild(pagination);
     };
 
-    // Initial render
     renderPage(currentPage);
   } catch (err) {
     container.innerHTML = "<p class='text-danger'>Erro ao ligar ao servidor.</p>";

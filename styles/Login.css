@@ -1,9 +1,9 @@
 body {
     font-family: 'Sofia Sans', Arial, sans-serif;
-    background-image: url('../Img/fundo/image.png'); /* Adiciona a imagem de fundo */
-    background-size: cover; /* Faz a imagem cobrir toda a área */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-image: url('../Img/fundo/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -13,7 +13,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Navbar no topo */
 .navbar-top {
     position: fixed;
     top: 0;
@@ -62,9 +61,8 @@ body {
     background-color: #c69500;
 }
 
-/* Estilo do container do formulário */
 .container {
-    background-color: rgba(255, 255, 255, 0.80); /* Caixa completamente transparente */
+    background-color: rgba(255, 255, 255, 0.80);
     border: 2px solid #8B4513;
     border-radius: 15px;
     height: 600px;
@@ -98,35 +96,15 @@ label {
 
 input[type="email"],
 input[type="password"] {
-    width: 282px;  /* Definido como 282px */
-    height: 37px;  /* Definido como 37px */
+    width: 282px;
+    height: 37px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f0f0f0;
     font-size: 14px;
     box-sizing: border-box;
-    flex-shrink: 0;  /* Impede que as caixas encolham */
-}
-
-.forgot-password {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.forgot-text {
-    color: #000;
-    font-size: 12px;
-}
-
-.forgot-link {
-    color: #1E90FF;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.forgot-link:hover {
-    text-decoration: underline;
+    flex-shrink: 0;
 }
 
 button {
@@ -141,7 +119,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 20px;
     box-sizing: border-box;
 }
 
@@ -153,6 +131,7 @@ button img {
 button:hover {
     background-color: #c69500;
 }
+
 .erro-message {
     width: 100%;
     text-align: center;
@@ -165,7 +144,34 @@ button:hover {
     padding: 10px;
     margin-bottom: 20px;
 }
+
 .google-signin-container {
-  margin-top: 20px;
-  text-align: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.division-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.division-left {
+    width: 100%;
+    border: 1px solid rgb(157, 157, 157);
+    border-radius: 10px;
+}
+
+.division-center {
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: smaller;
+    font-weight: 400;
+    margin: 0 10px;
+}
+
+.division-right {
+    width: 100%;
+    border: 1px solid rgb(157, 157, 157);
+    border-radius: 10px;
 }
