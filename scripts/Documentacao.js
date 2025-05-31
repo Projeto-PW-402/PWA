@@ -8,7 +8,7 @@ if (chooseFilesBtn && fileInput) {
     fileInput.click();
   });
 
-  // Quando selecionas ficheiros, atualiza o array e re-renderiza os slots
+
   fileInput.addEventListener('change', (event) => {
     const newFiles = Array.from(event.target.files);
     if (chosenFiles.length + newFiles.length > 5) {
@@ -47,7 +47,7 @@ function renderSlots() {
         };
         reader.readAsDataURL(file);
       } else {
-        // Senão mostra tipo (AUDIO/VIDEO)
+
         slot.textContent = file.type.split('/')[0].toUpperCase();
         appendDeleteButton(slot, idx);
       }
@@ -61,7 +61,7 @@ function appendDeleteButton(slot, index) {
   btn.className = 'delete-btn';
   btn.innerHTML = '×'; // Símbolo X
   btn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Não dispara outros handlers
+    e.stopPropagation(); 
     removeFile(index);
   });
   slot.appendChild(btn);
@@ -135,7 +135,7 @@ if (submitBtn) {
     })
       .then(res => res.json())
       .then(data => {
-        alert(`Mensagem: ${data.mensagem || ''} Erro: ${data.error || ''}`);
+        alert(`Mensagem: ${data.mensagem}`);
         resetForm();
       })
       .catch(err => {

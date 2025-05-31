@@ -1,9 +1,8 @@
-/* Sidebar */
+
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Escondida por padrão */
-    width: 250px;
+    right: -250px; 
     height: 100%;
     background-color: #fff;
     border-left: 2px solid #5C3507;
@@ -13,7 +12,7 @@
 }
 
 .sidebar.active {
-    right: 0; /* Mostra a sidebar */
+    right: 0; 
 }
 
 .sidebar-header {

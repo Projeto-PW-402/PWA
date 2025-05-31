@@ -23,8 +23,8 @@ async function fetchUserNotification() {
   }
 }
 
-// Chama a cada 10 segundos
+
 setInterval(fetchUserNotification, 10000);
 
-// Chama logo no início
+
 fetchUserNotification();

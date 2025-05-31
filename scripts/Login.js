@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     password: 'Bolinhas33'
   };
 
-  // Inicializa o armazenamento local com um utilizador padrão, se necessário
+
   if (!localStorage.getItem('users')) {
     localStorage.setItem('users', JSON.stringify([defaultUser]));
   }
@@ -33,16 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Handler do login Google
+
 window.handleCredentialResponse = function(response) {
   try {
     const token = response.credential;
-    const payload = JSON.parse(atob(token.split('.')[1])); // Decodifica o JWT
+    const payload = JSON.parse(atob(token.split('.')[1])); 
 
     const email = payload.email;
     const name = payload.name;
     const user_id =1 ;
-    // Aqui podes adicionar lógica adicional se quiseres guardar este user no localStorage
+ 
     localStorage.setItem('loggedInUser', email);
     console.log("Nome do utilizador:", name);
     localStorage.setItem('userName', name);

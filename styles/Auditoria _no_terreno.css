@@ -1,5 +1,5 @@
 body {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family:sans-serif;
   background-color: #5C3507;
   margin: 0;
   padding: 0;
@@ -12,18 +12,18 @@ body {
 .main-content {
   width: 100%;
   max-width: 400px;
-  margin-top: 80px; /* espaço para navbar-top */
-  margin-bottom: 83px; /* espaço para navbar inferior */
+  margin-top: 80px; 
+  margin-bottom: 83px; 
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* conteúdo alinhado à esquerda */
+  align-items: flex-start; 
 }
 
 .location-content {
   width: 100%;
   max-width: 400px;
-  padding-left: 20px; /* espaço à esquerda */
+  padding-left: 20px; 
   display: flex;
   align-items: center;
   justify-content: flex-start;

@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.location.href = "Menuinicial.html";
           };
         } else {
-          // Botão vazio para manter layout fixo
+          
           btn.style.visibility = "hidden";
           btn.disabled = true;
         }

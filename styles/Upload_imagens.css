@@ -1,5 +1,5 @@
 body {
-    font-family: 'Sofia Sans', sans-serif;
+    font-family:sans-serif;
     background-color: #5C3507;
     margin: 0;
     padding: 0;
@@ -72,20 +72,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    display: none; /* Começa escondido */
+    display: none;
 }
 
 .image-upload-box.has-image .plus-icon {
-    display: none; /* Esconde o + quando a imagem é carregada */
+    display: none; 
 }
 
 .image-upload-box.has-image .uploaded-image {
-    display: block; /* Garante que a imagem apareça quando carregada */
+    display: block; 
 }
 
 .enviar-btn {
-    margin-top: 10px; /* diminuiu para subir o botão */
-    margin-bottom: 0;
+    margin-top: 10px; 
     padding: 10px 60px;
     font-weight: bold;
     border: none;

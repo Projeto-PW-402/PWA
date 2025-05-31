@@ -1,5 +1,5 @@
 body {
-    font-family: 'Sofia Sans', sans-serif;
+    font-family:sans-serif;
     background-color: #5C3507;
     margin: 0;
     padding: 0;
@@ -26,12 +26,12 @@ body {
 .main-content {
     width: 100%;
     max-width: 400px;
-    margin-top: 55px; /* espaço para navbar-top */
-    margin-bottom: 83px; /* espaço para navbar inferior */
+    margin-top: 55px; 
+    margin-bottom: 83px; 
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    align-items: flex-start; 
 }
 
 .location-content {
@@ -50,11 +50,6 @@ h2 {
   text-align: left;
   width: fit-content;
   margin: 3px;
-}
-
-.ajust-img {
-  width: 20px;
-  height: auto;
 }
 
 .confirmacao-container {
@@ -108,7 +103,7 @@ h2 {
     color: #5C3507;
     margin: 20px 0;
     text-align: center;
-    font-family: 'Sofia Sans', sans-serif;
+    font-family:sans-serif;
 }
 .duracao {
     font-size: 18px;

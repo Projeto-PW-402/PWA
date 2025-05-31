@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 3) Geolocalização (invoca o prompt nativo “Permitir / Bloquear”)
+  
     if (!navigator.geolocation) {
       return alert('Geolocalização não é suportada no seu navegador.');
     }
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const API_BASE = 'http://127.0.0.1:5000';
         const url = `${API_BASE}/location/send`;
 
-        // Verificar se o utilizador está autenticado
+    
         const auditoria = JSON.parse(localStorage.getItem("auditoria"));
         const id_auditoria = auditoria['id'];
         const id_user = JSON.parse(localStorage.getItem("user_id"));

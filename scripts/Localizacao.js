@@ -46,6 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Botão 'nao-permito' não encontrado.");
   }
 
-  // Inicializar ícones Lucide
-  lucide.createIcons();
 });

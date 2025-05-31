@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   startButton.addEventListener('click', () => {
-    // marca início
+  
     localStorage.setItem('auditStartTime', new Date().toISOString());
-    // limpa qualquer duração anterior
+  
     localStorage.removeItem('auditDuration');
 
     startButton.disabled = true;
@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (startISO) {
       const totalSec = Math.floor((Date.now() - new Date(startISO)) / 1000);
       const formatted = formatTime(totalSec);
-      // guarda a duração final
+    
       localStorage.setItem('auditDuration', formatted);
     }
 
-    // remove o start para "encerrar" a auditoria
+
     localStorage.removeItem('auditStartTime');
 
     startButton.disabled = false;
